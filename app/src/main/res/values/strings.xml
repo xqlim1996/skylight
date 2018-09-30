@@ -1,23 +1,4 @@
 <resources>
-    <string name="title_activity_login_main">Your Flight</string>
-    <string name="app_name">SIA_v2</string>
-
-    <!-- Strings for details in popup -->
-    <string name="popup_cash">Details for Cash</string>
-    <string name="popup_hotel">Details for Hotel Stay</string>
-    <string name="popup_upgrade">Details for Flight Upgrade</string>
-
-
-    <!-- Strings related to login -->
-    <string name="prompt_email">KrisFlyer membership number</string>
-    <string name="prompt_password">PIN</string>
-    <string name="action_sign_in">Sign in</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">Please enter a valid 10-digit KrisFlyer membership number.</string>
-    <string name="error_invalid_password">The PIN has to be 6 characters long</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="app_name">SkyLightApp</string>
+    <string name="action_sign_in">Sign In</string>
 </resources>
