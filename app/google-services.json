@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "183105683833",
+    "firebase_url": "https://skylight-87b14.firebaseio.com",
+    "project_id": "skylight-87b14",
+    "storage_bucket": "skylight-87b14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183105683833:android:5c62e4a4b241fe6d",
+        "android_client_info": {
+          "package_name": "me.eugenekoh.skylightapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183105683833-tujoqp7b1j7paf0v442cec172r82p10n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt5zFoWbRmWw8pNmA-tiq7Nleq2BodE0Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
