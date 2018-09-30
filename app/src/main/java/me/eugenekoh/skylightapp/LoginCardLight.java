@@ -65,6 +65,9 @@ public class LoginCardLight extends AppCompatActivity {
                 if (task.isSuccessful()){
                     Toast.makeText(LoginCardLight.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
+                    Intent i = new Intent();
+
+
                     startActivity(new Intent(LoginCardLight.this, Flights.class));
                 }else{
                     progressDialog.dismiss();
