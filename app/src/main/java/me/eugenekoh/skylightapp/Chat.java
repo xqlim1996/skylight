@@ -1,13 +1,17 @@
 package me.eugenekoh.skylightapp;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -64,12 +69,13 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import me.eugenekoh.skylightapp.utils.GPSTracker;
+import android.location.LocationListener;
 //import android.content.Context;
 //firestore
 //chatbot
 
 
-public class Chat extends AppCompatActivity {
+public class Chat extends AppCompatActivity implements LocationListener{
 
 
     final Conversation myConversationService =
@@ -180,6 +186,67 @@ public class Chat extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    //GPS
+
+
+    /* Request updates at startup */
+    @Override
+    public void onResume() {
+        super.onResume();
+        getLocation();
+    }
+
+    /* Remove the locationlistener updates when Activity is paused */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        locationManager.removeUpdates(this);
+    }
+
+    public void getLocation() {
+        try {
+            locationManager = (LocationManager) getSystemService(android.content.Context.LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 5, this);
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void CheckPermission() {
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+        }
+    }
+
+    public void onLocationChanged(Location location) {
+
+        longitude = String.valueOf(location.getLongitude());
+        latitude = String.valueOf(location.getLatitude());
+
+    }
+
+
+    public void onProviderDisabled(String provider) {
+        Toast.makeText(Chat.this, "Please Enable GPS and Internet", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    public void onProviderEnabled(String provider) {
+        Toast.makeText(this, "Enabled new provider!" + provider,
+                Toast.LENGTH_SHORT).show();
+    }
+
+
+
+
+
+
+
 
 
     public void conversationAPI(String input, com.ibm.watson.developer_cloud.conversation.v1.model.Context context, String workspaceId){
@@ -389,14 +456,7 @@ public class Chat extends AppCompatActivity {
                         String depInfo = object.getJSONObject("response").getJSONArray("flights").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getString("scheduledDepartureTime");
 
 
-                        GPSTracker gps = new GPSTracker(mContext);
-                        String latitude = String.valueOf(gps.getLatitude());
-                        String longitude = String.valueOf(gps.getLongitude());
-
                         OkHttpClient client2 = new OkHttpClient();
-
-                        longitude = "103.9045971";
-                        latitude = "1.3047717";
 
                         Request request2 = new Request.Builder()
                                 .url("https://maps.googleapis.com/maps/api/directions/json?origin="+ latitude+","+longitude +"&destination=" + airportName + "%20Airport%20Terminal" + airportTerminal + "&key=AIzaSyA7TpA2UY9SjoZKfTN8gnJrVg1HJJFRmyQ")
@@ -416,7 +476,7 @@ public class Chat extends AppCompatActivity {
                                     try {
                                         JSONObject object2 = new JSONObject(response2.body().string());
                                         String travelDuration = object2.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text");
-                                        displayMsgBot("It will take " + travelDuration + " by car to get to " + airportName + " Airport Terminal " + airportTerminal+" from your current location." );
+                                        displayMsgBot("It will take approximately " + travelDuration + " by car to get to " + airportName + " Airport Terminal " + airportTerminal+" from your current location." );
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     } catch (IOException e) {
