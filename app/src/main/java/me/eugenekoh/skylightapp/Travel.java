@@ -88,7 +88,7 @@ public class Travel extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        getMenuInflater().inflate(R.menu.menu_logout, menu);
         Tools.changeMenuIconColor(menu, getResources().getColor(R.color.grey_60));
         return true;
     }

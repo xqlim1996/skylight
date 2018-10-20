@@ -25,7 +25,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,7 +41,6 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.ibm.watson.developer_cloud.conversation.v1.Conversation;
-import com.ibm.watson.developer_cloud.conversation.v1.model.Context;
 import com.ibm.watson.developer_cloud.conversation.v1.model.InputData;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageOptions;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
@@ -68,7 +66,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import me.eugenekoh.skylightapp.utils.GPSTracker;
 import android.location.LocationListener;
 //import android.content.Context;
 //firestore
@@ -173,7 +170,7 @@ public class Chat extends AppCompatActivity implements LocationListener{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        getMenuInflater().inflate(R.menu.menu_logout, menu);
         return true;
     }
 

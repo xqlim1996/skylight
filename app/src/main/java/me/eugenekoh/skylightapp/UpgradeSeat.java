@@ -12,10 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import me.eugenekoh.skylightapp.R;
 import me.eugenekoh.skylightapp.utils.Tools;
 import me.eugenekoh.skylightapp.utils.ViewAnimation;
 
@@ -104,7 +102,7 @@ public class UpgradeSeat extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        getMenuInflater().inflate(R.menu.menu_logout, menu);
         Tools.changeMenuIconColor(menu, getResources().getColor(R.color.grey_60));
         return true;
     }

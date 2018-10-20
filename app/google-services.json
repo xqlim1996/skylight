@@ -8,12 +8,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:183105683833:android:5c62e4a4b241fe6d",
+        "mobilesdk_app_id": "1:183105683833:android:3bf4a0f4e250161e",
         "android_client_info": {
-          "package_name": "me.eugenekoh.skylightapp"
+          "package_name": "com.skylight.tanjunming.siaappchallengechatbot"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "183105683833-m0hhoa6m0fagrd1cefvcqf8ajngr46jc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skylight.tanjunming.siaappchallengechatbot",
+            "certificate_hash": "2c97367876826cfd31089c6f5e41a32d5f2bea06"
+          }
+        },
+        {
+          "client_id": "183105683833-euf3nh6cqfmucipcdlbnrrttb3qmpdk2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skylight.tanjunming.siaappchallengechatbot",
+            "certificate_hash": "60692cca22ad4fcc0936c124825287cc070ff4cc"
+          }
+        },
         {
           "client_id": "183105683833-tujoqp7b1j7paf0v442cec172r82p10n.apps.googleusercontent.com",
           "client_type": 3
@@ -29,8 +45,57 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183105683833-tujoqp7b1j7paf0v442cec172r82p10n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183105683833:android:5c62e4a4b241fe6d",
+        "android_client_info": {
+          "package_name": "me.eugenekoh.skylightapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183105683833-a3ti0pantupr99crs8pvr8q3mjd64jrl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.eugenekoh.skylightapp",
+            "certificate_hash": "75520dcb2db26be383c52e204d6e3bd1af8c0e50"
+          }
+        },
+        {
+          "client_id": "183105683833-tujoqp7b1j7paf0v442cec172r82p10n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt5zFoWbRmWw8pNmA-tiq7Nleq2BodE0Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183105683833-tujoqp7b1j7paf0v442cec172r82p10n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

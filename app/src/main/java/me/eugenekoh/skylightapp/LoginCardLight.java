@@ -2,12 +2,14 @@ package me.eugenekoh.skylightapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class LoginCardLight extends AppCompatActivity {
     private Button login;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    SharedPreferences sp;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,12 @@ public class LoginCardLight extends AppCompatActivity {
         setContentView(R.layout.activity_login_card_light);
         parent_view = findViewById(android.R.id.content);
 
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+
+        if(sp.getBoolean("logged",false)){
+            goToMainActivity();
+        }
+
         monitorLogin();
     }
 
@@ -53,19 +62,20 @@ public class LoginCardLight extends AppCompatActivity {
         login = (Button) findViewById(R.id.email_sign_in_button);
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(LoginCardLight.this);
+        final CheckBox checkBox = (CheckBox) findViewById(R.id.checkbox);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressDialog.setMessage("Logging In..");
                 progressDialog.show();
-                validate(name.getText().toString(), password.getText().toString());
+                validate(name.getText().toString(), password.getText().toString(), checkBox);
             }
         });
     }
 
 
-    private void validate(String userName, String userPassword) {
+    private void validate(String userName, String userPassword, final CheckBox checkBox) {
 
         firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(LoginCardLight.this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -73,14 +83,26 @@ public class LoginCardLight extends AppCompatActivity {
                 if (task.isSuccessful()){
                     Toast.makeText(LoginCardLight.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
-                    startActivity(new Intent(LoginCardLight.this, Flights.class));
-                    finish();
+                    keepSignedIn(checkBox);
+                    goToMainActivity();
                 }else{
                     progressDialog.dismiss();
                     Toast.makeText(LoginCardLight.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private void keepSignedIn(CheckBox checkBox){
+        if (checkBox.isChecked()){
+            sp.edit().putBoolean("logged",true).apply();
+        }
+    }
+
+    private void goToMainActivity(){
+        Intent i = new Intent();
+        startActivity(new Intent(LoginCardLight.this, Flights.class));
+        this.finish();
     }
 }
 

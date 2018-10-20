@@ -13,4 +13,15 @@
     </string>
     <string name="option1">Option 1: Receive compensation as a cash voucher</string>
     <string name="option2">Option 2: Receive compensation as a upgrade to Business Class for the rescheduled flight</string>
+    <string name="sign_in_to_skylight">Sign in to Skylight</string>
+    <string name="keep_me_signed_in">Keep me signed in</string>
+    <string name="password_caps">PASSWORD</string>
+    <string name="username_caps">USERNAME</string>
+    <string name="travel_flex">This flight is travel flex ready. Click to find out more.</string>
+    <string name="bumpbid_start">BumpBid</string>
+    <string name="bumpbid_start_text"><![CDATA[Thank you for choosing to participate in the TravelFlex scheme. The BumpBid process has started for the flight]]></string>
+    <string name="start">Start</string>
+    <string name="what_is_bumpbid">What is Bumpbid?</string>
+    <string name="bumpbid_description">Bumpbid is a system under the Travel Flex scheme. Travel Flex passengers , like yourself, are given the option to give up their seats in the event of overbooking in exchange for rewards</string>
+    <string name="bumpbid_rules">1. View the current offer and accept if offer id desired.\n\n2. BumpBid offer might be closed when cap number of passengers has accepted. Click fast!\n\n3. Results will be released 40 min before the flight. When overbooking occurs, travel flex passengers are selected on a first-come, first-serve basis. Accept offer early to avoid disappointment!\\n\n4.All passengers who accepted the cash offer wil be given meal vouchers to thank you for enrolling in this program.\n\n5. Once you click accept, you are unable change your option from the app. Please contact our service staff for more information.</string>
 </resources>
