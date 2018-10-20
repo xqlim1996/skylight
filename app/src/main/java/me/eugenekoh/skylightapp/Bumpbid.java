@@ -122,6 +122,7 @@ public class Bumpbid extends AppCompatActivity {
                 // to confirm that user accepted
                 SharedPreferences sp = getSharedPreferences("bumpbid",MODE_PRIVATE);
                 sp.edit().putBoolean("accepted",true).apply();
+                initQR();
             }
         });
         builder.setNegativeButton("Disagree", null);
