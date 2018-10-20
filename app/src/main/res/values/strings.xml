@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SkyLightApp</string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="action_settings">Settings</string>
+    <string name="username">3fedf5c4-fffc-41d2-bf74-3b27e9aca9bc</string>
+    <string name="password">cPjgN6dSCn0H</string>
+    <string name="workspace">9542d46e-aab7-435b-b09b-cf0fae7a28cd</string>
+    <string name="bumpbid">
+        BumpBid is a overbooking management system under the TravelFlex scheme.
+        As a TravelFlex passenger, you are given the opportunity to exchange your seat for compensation
+        (cash or seat upgrade) on a first come first serve basis. Click next to find out the current offer
+        and options available.
+    </string>
+    <string name="option1">Option 1: Receive compensation as a cash voucher</string>
+    <string name="option2">Option 2: Receive compensation as a upgrade to Business Class for the rescheduled flight</string>
+</resources>
